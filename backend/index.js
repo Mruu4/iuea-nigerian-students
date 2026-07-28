@@ -11,6 +11,9 @@ app.use(express.json());
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
+const adminRoutes = require('./routes/admin');
+app.use('/api/admin', adminRoutes);
+
 app.get('/', (req, res) => {
   res.send('IUEA Nigerian Students API is running');
 });
