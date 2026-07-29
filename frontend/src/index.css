@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+@theme {
+  --color-forest: #0B6E4F;
+  --color-forest-dark: #094F39;
+  --color-ink: #12201A;
+  --color-gold: #D4A017;
+  --color-gold-light: #E8C158;
+  --color-paper: #FDFBF6;
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+@keyframes drift-1 {
+  0%, 100% { transform: translate(0, 0) rotate(-8deg); }
+  50% { transform: translate(40px, 30px) rotate(8deg); }
+}
+@keyframes drift-2 {
+  0%, 100% { transform: translate(0, 0) rotate(6deg); }
+  50% { transform: translate(-30px, 40px) rotate(-6deg); }
+}
+@keyframes drift-3 {
+  0%, 100% { transform: translate(0, 0) rotate(-4deg); }
+  50% { transform: translate(25px, -35px) rotate(10deg); }
+}
+@keyframes drift-4 {
+  0%, 100% { transform: translate(0, 0) rotate(5deg); }
+  50% { transform: translate(-20px, -25px) rotate(-9deg); }
+}
+
+.animate-drift-1 { animation: drift-1 12s ease-in-out infinite; }
+.animate-drift-2 { animation: drift-2 15s ease-in-out infinite; }
+.animate-drift-3 { animation: drift-3 18s ease-in-out infinite; }
+.animate-drift-4 { animation: drift-4 20s ease-in-out infinite; }
