@@ -1,31 +1,50 @@
-import { useNavigate } from 'react-router-dom';
+import DashboardLayout from '../components/DashboardLayout';
+import { CheckCircle2, ShieldCheck, Wallet, Megaphone } from 'lucide-react';
 
 function Dashboard() {
-  const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('user'));
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    navigate('/login');
-  };
+  const user = JSON.parse(localStorage.getItem('user') || 'null');
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xl font-bold text-green-700">Dashboard</h1>
-          <button
-            onClick={handleLogout}
-            className="text-sm bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
-          >
-            Logout
-          </button>
+    <DashboardLayout>
+      <h1 className="font-display text-3xl text-ink mb-1">
+        Welcome, {user?.fullName?.split(' ')[0] || 'Member'}
+      </h1>
+      <p className="text-ink/50 mb-8">Here's what's happening in your community.</p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div className="bg-white rounded-xl border border-ink/10 border-l-4 border-l-forest p-5 shadow-sm">
+          <div className="flex items-center gap-2 text-ink/40 mb-2">
+            <CheckCircle2 size={16} />
+            <p className="text-xs uppercase tracking-wide font-medium">Account status</p>
+          </div>
+          <p className="font-display text-xl text-forest">Approved</p>
         </div>
-        <p>Welcome, {user?.fullName || 'Member'} 👋</p>
-        <p className="text-sm text-gray-500 mt-1">Role: {user?.role}</p>
+
+        <div className="bg-white rounded-xl border border-ink/10 border-l-4 border-l-gold p-5 shadow-sm">
+          <div className="flex items-center gap-2 text-ink/40 mb-2">
+            <ShieldCheck size={16} />
+            <p className="text-xs uppercase tracking-wide font-medium">Role</p>
+          </div>
+          <p className="font-display text-xl text-ink capitalize">{user?.role}</p>
+        </div>
+
+        <div className="bg-white rounded-xl border border-ink/10 border-l-4 border-l-ink/20 p-5 shadow-sm">
+          <div className="flex items-center gap-2 text-ink/40 mb-2">
+            <Wallet size={16} />
+            <p className="text-xs uppercase tracking-wide font-medium">Contributions</p>
+          </div>
+          <p className="font-display text-xl text-ink/40">Coming soon</p>
+        </div>
       </div>
-    </div>
+
+      <div className="mt-8 bg-white rounded-xl border border-ink/10 p-6 shadow-sm">
+        <div className="flex items-center gap-2 mb-3">
+          <Megaphone size={18} className="text-forest" />
+          <h2 className="font-display text-lg text-ink">Announcements</h2>
+        </div>
+        <p className="text-ink/50 text-sm">No announcements yet. Check back soon.</p>
+      </div>
+    </DashboardLayout>
   );
 }
 
