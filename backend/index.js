@@ -14,6 +14,9 @@ app.use('/api/auth', authRoutes);
 const adminRoutes = require('./routes/admin');
 app.use('/api/admin', adminRoutes);
 
+const leadershipRoutes = require('./routes/leadership');
+app.use('/api/leadership', leadershipRoutes);
+
 app.get('/', (req, res) => {
   res.send('IUEA Nigerian Students API is running');
 });
