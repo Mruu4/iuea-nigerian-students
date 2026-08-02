@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Leadership from './pages/Leadership';
+import Admin from './pages/Admin';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -20,14 +21,22 @@ function App() {
             </ProtectedRoute>
           }
         />
-<Route
-  path="/leadership"
-  element={
-    <ProtectedRoute>
-      <Leadership />
-    </ProtectedRoute>
-  }
-/>
+        <Route
+          path="/leadership"
+          element={
+            <ProtectedRoute>
+              <Leadership />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
