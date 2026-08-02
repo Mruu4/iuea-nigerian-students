@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Leadership from './pages/Leadership';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -19,6 +20,14 @@ function App() {
             </ProtectedRoute>
           }
         />
+<Route
+  path="/leadership"
+  element={
+    <ProtectedRoute>
+      <Leadership />
+    </ProtectedRoute>
+  }
+/>
       </Routes>
     </BrowserRouter>
   );

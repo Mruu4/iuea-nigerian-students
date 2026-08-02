@@ -17,6 +17,9 @@ app.use('/api/admin', adminRoutes);
 const leadershipRoutes = require('./routes/leadership');
 app.use('/api/leadership', leadershipRoutes);
 
+const uploadRoutes = require('./routes/upload');
+app.use('/api/upload', uploadRoutes);
+
 app.get('/', (req, res) => {
   res.send('IUEA Nigerian Students API is running');
 });
